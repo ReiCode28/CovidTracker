@@ -39,7 +39,6 @@ public class CovidDataService {
                 .build();
         HttpResponse<String> httpResponse = client.send(request, HttpResponse.BodyHandlers.ofString());
         StringReader csvBodyReader = new StringReader(httpResponse.body());
-//        Reader in = new FileReader("path/to/file.csv");
         Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvBodyReader);
         for (CSVRecord record : records) {
             LocationStats locationStat = new LocationStats();
