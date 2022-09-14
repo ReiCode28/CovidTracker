@@ -7,9 +7,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.IOException;;
 import java.io.StringReader;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -48,7 +46,6 @@ public class CovidDataService {
             locationStat.setState(record.get("Province/State"));
             locationStat.setCountry(record.get("Country/Region"));
             locationStat.setLatestTotalCases(Integer.parseInt(record.get(record.size()-1)));
-            System.out.println(locationStat);
             newStats.add(locationStat);
 
         }
